@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #ps -p $$
+#apt-cache show <PACKAGE>
 
 declare -a developmentPackages=(
 'vim'
@@ -32,11 +33,13 @@ declare -a latexPackages=(
 )
 
 declare -a multimediaPackages=(  
-'audacity'
 'vlc'
 'libav-tools'
 'ffmpeg'
-'ffprobe'
+'audacity'
+'rakarrack'
+'fmit' #bass tuner
+'qjackctl'
 'clementine' #mp3 player
 #youtube-dl must be installed through pip to get the latest version
 )
@@ -47,17 +50,23 @@ declare -a miscellaneousPackages=(
 'octave'
 'arduino'
 'okteta'
-'steghide'
+'fritzing'
+'fritzing-data'
+'fritzing-parts'
 )
 
 declare -a securityPackages=(
 'password-gorilla'
-'wireshark'
+'steghide'
+'proxychains'
+'obfsproxy'
+'tor'
+#'wireshark' #wireshark will ask if regular users should be able to capture packets
 )
 
 declare -a pipPackages=(
 'youtube-dl'
-# youtube-dl -v -x --audio-format -mp3 <CHANNEL_URL> 
+# youtube-dl -v -x --audio-format mp3 <CHANNEL_URL> 
 )
 
 cd ~
@@ -94,5 +103,13 @@ echo ${pipPackages[@]}
 
 #git clone https://github.com/kaylani2/dotfiles
 #cd dotfiles
-#cp .vim ~/.vimrc
+#cp .vimrc ~/.vimrc
 #cp .tmux.conf ~/.tmux.conf
+
+
+#\/Add the build repository and install the Metasploit Framework package:
+#curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
+#\/ Starts, must configure database on the first run
+#./msfconsole
+#\/ Show status
+#db_status

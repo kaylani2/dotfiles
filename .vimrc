@@ -75,7 +75,7 @@ colorscheme desert
 
 "setlocal spell spelllang=en_us
 set number
-"set relativenumber
+set relativenumber
 "set rulerformat=%l\:%c
 set tabstop=3
 set shiftwidth=3
@@ -99,7 +99,11 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-set clipboard=unnamed
+" Stop using arrow keys
+nnoremap <Left> :echo "No left for you!"<CR>
+nnoremap <Right> :echo "No right for you!"<CR>
+nnoremap <Up> :echo "No up for you!"<CR>
+nnoremap <Down> :echo "No down for you!"<CR>
 
 " Eliminate esc delay
 set ttimeoutlen=100
@@ -122,6 +126,7 @@ command! MakeTags !ctags -R .
 let mapleader = ","
 
 " Reload ~/.vimrc
+" Doesn't work
 "nmap <leader>s :source ~/.vimrc<CR>!
 
 " Read from the .skeleton.html file (a little template)
