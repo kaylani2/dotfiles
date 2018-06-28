@@ -1,34 +1,71 @@
 #!/bin/bash
 
-#ps -p $$
-#apt-cache show <PACKAGE>
+###############################################################
+###################### Beginners Section ###################### 
+###############################################################
+#
+# ps -p $$ -> outputs the name of your shell
+# apt-cache show <PACKAGE> -> show information about a package
+# dpkg -i <PACKAGE>.deb -> install a .deb package
+# echo $? -> output last code returned to the shell
+#
+#
+
+
+###############################################################
+######################### Git Basics ##########################
+###############################################################
+# 
+# git init <PATH> -> initialize a git repository on <PATH>
+# git status
+# git add <FILE> 
+# git commit 
+# 
+# 
 
 declare -a developmentPackages=(
 'vim'
 'sublime-text'
 'ctags'
 'git'
+'build-essential'
 'libc6-dev'
 'virtualbox'
 )
 
-declare -a pythonPackges=(
+declare -a pythonPackages=(
 'python3'
 'python3-numpy'
 'python-setuptools'
 # pip /\
 )
 
+declare -a javaPackages=(
+'maven'
+'default-jdk'
+'default-jre'
+'openjdk-8-jdk'
+'openjdk-8-jre'
+'zlib1g-dev'
+'libncurses5-dev'
+'lib32z1'
+'lib32ncurses5'
+)
+
+
 declare -a shellToolsPackages=(
-'tmux'
+'tmux' #terminal multiplexer
 'tree'
 'screenkey'
-'htop'
+'htop' #system monitor
+'ranger' #file manager - nice mass renamer function
+'curl' #data transfer tool
+'wget' #web file retriever
 )
 
 
 declare -a latexPackages=(
-'texlive-full'
+#'texlive-full'
 'evince'
 )
 
@@ -40,6 +77,7 @@ declare -a multimediaPackages=(
 'rakarrack'
 'fmit' #bass tuner
 'qjackctl'
+'pinta'
 'clementine' #mp3 player
 #youtube-dl must be installed through pip to get the latest version
 )
@@ -66,7 +104,7 @@ declare -a securityPackages=(
 
 declare -a pipPackages=(
 'youtube-dl'
-# youtube-dl -v -x --audio-format mp3 <CHANNEL_URL> 
+# youtube-dl -v -x --audio-format mp3 --playlist-start <NUMBER> --playlist-end <NUMBER> <CHANNEL_URL> 
 )
 
 cd ~
@@ -92,13 +130,15 @@ echo Pip Packages:
 echo ${pipPackages[@]}
 
 
-#apt update
-#apt install -y ${developmentPackages[@]}
-#apt install -y ${shellToolsPackages[@]}
-#apt install -y ${latexPackages[@]}
-#apt install -y ${miscellaneousPackages[@]}
-#apt install -y ${securityPackages[@]}
-#apt install -y ${multimediaPackages[@]}
+apt-get update
+apt-get install -y ${developmentPackages[@]}
+apt-get install -y ${shellToolsPackages[@]}
+apt-get install -y ${pythonPackages[@]}
+apt-get install -y ${javaPackages[@]}
+apt-get install -y ${latexPackages[@]}
+apt-get install -y ${miscellaneousPackages[@]}
+apt-get install -y ${securityPackages[@]}
+apt-get install -y ${multimediaPackages[@]}
 #pip install --upgrade $(pipPackages[@])
 
 #git clone https://github.com/kaylani2/dotfiles
