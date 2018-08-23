@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# some programs need to be installed manually and only under certain conditions
+# these will be commented at the end of the script
+
 ###############################################################
 ###################### Beginners Section ###################### 
 ###############################################################
@@ -30,12 +33,18 @@ declare -a developmentPackages=(
 'git'
 'build-essential'
 'libc6-dev'
+'libboost-all-dev'
+'lua5.3'
+'perl'
 'virtualbox'
 )
 
 declare -a pythonPackages=(
 'python3'
 'python3-numpy'
+'python3-matplotlib' #required for using the mnist database
+'python3-tk'
+'python-matplotlib'
 'python-setuptools'
 # pip /\
 )
@@ -65,7 +74,7 @@ declare -a shellToolsPackages=(
 
 
 declare -a latexPackages=(
-#'texlive-full'
+'texlive-full'
 'evince'
 )
 
@@ -74,12 +83,15 @@ declare -a multimediaPackages=(
 'libav-tools'
 'ffmpeg'
 'audacity'
-'rakarrack'
 'fmit' #bass tuner
-'qjackctl'
+'rakarrack' #virtual effects rack
+'guitarix' #rock guitar amplifier for Jack
+'qjackctl' #user interface for controlling JACK (Jack Audio Connection Kit)
 'pinta'
 'clementine' #mp3 player
+'handbrake' #media converter
 #youtube-dl must be installed through pip to get the latest version
+#something here will stop the process and ask something, don't know what it is yet
 )
 
 declare -a miscellaneousPackages=(  
@@ -99,6 +111,8 @@ declare -a securityPackages=(
 'proxychains'
 'obfsproxy'
 'tor'
+'nmap'
+#'macchanger' #macchanger will ask if the MAC adress should be changed on its own
 #'wireshark' #wireshark will ask if regular users should be able to capture packets
 )
 
@@ -139,17 +153,31 @@ apt-get install -y ${latexPackages[@]}
 apt-get install -y ${miscellaneousPackages[@]}
 apt-get install -y ${securityPackages[@]}
 apt-get install -y ${multimediaPackages[@]}
-#pip install --upgrade $(pipPackages[@])
+pip install --upgrade $(pipPackages[@])
+
+# \/ this line will ask for confirmation
+#add-apt-repository ppa:dawidd0811/neofetch
+#apt-get update
+#apt-get install neofetch
 
 #git clone https://github.com/kaylani2/dotfiles
 #cd dotfiles
 #cp .vimrc ~/.vimrc
 #cp .tmux.conf ~/.tmux.conf
+#cd ..
+#rm -rf dotfiles
 
-
-#\/Add the build repository and install the Metasploit Framework package:
+# \/Add the build repository and install the Metasploit Framework package:
 #curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
 #\/ Starts, must configure database on the first run
-#./msfconsole
+#msfconsole
 #\/ Show status
 #db_status
+#msfupdate
+
+# \/ Airgeddon framework
+#git clone github.com/v1s1t0r1sh3r3/airgeddon.git
+#cd airgeddon
+#sudo bash ./airgeddon.sh
+# Remember to manually install the dependencies for airgeddon
+# Note: airgeddon makes a lot of noise, change your MAC before using it FOR GOOD THINGS

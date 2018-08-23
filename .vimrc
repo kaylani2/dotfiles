@@ -80,8 +80,8 @@
 	" ]s -> moves to next misspelled word
 	" [s -> moves to previous misspelled word
 	" z= -> shows suggestions for the word under the cursor
-	" zg -> adds word to the dictionary
-	" zw -> removes word from the dictionary
+	" zg -> tags word as good word
+	" zw -> tags word as bad word
 
 " #################################################
 " #################################################
@@ -107,9 +107,9 @@ set rulerformat=%l\:%c
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-"set expandtab
+set expandtab
 " /\ tabs are spaces now
-"set cursorline
+" set cursorline
 " /\ underline the current line
 set hlsearch
 " /\ highlight search results
