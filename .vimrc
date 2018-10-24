@@ -129,10 +129,20 @@ nnoremap Q <nop>
 
 " Save using :W
 " Save and quit using :WQ or :Wq
+" No more Q! problems
 command! WQ wq
 command! Wq wq
 command! W w
 command! Q q
+cmap Q! q!
+
+" No more help (my terminal still provides the damn help)
+nmap <F1> :echo<CR>
+imap <F1> <C-o>:echo<CR>
+"map <F1> <Esc>
+"imap <F1> <Esc>
+"nnoremap <F1> <Esc>g<C-G>
+
 
 " Change panes without <C-W>
 " Conflicts with 'scroll faster holding ctrl'
@@ -189,23 +199,23 @@ command! MakeTags !ctags -R .
 
 
 " HTML shenanigans
-nnoremap ,ç :%s/ç/\&ccedil;/g<CR>
-nnoremap ,ã :%s/ã/\&atilde;/g<CR>
-nnoremap ,Ã :%s/Ã/\&Atilde;/g<CR>
-nnoremap ,á :%s/á/\&aacute;/g<CR>
-nnoremap ,Á :%s/Á/\&Aacute;/g<CR>
-nnoremap ,à :%s/à/\&agrave;/g<CR>
-nnoremap ,À :%s/À/\&Agrave;/g<CR>
-nnoremap ,é :%s/é/\&eacute;/g<CR>
-nnoremap ,É :%s/É/\&Eacute;/g<CR>
-nnoremap ,è :%s/è/\&egrave;/g<CR>
-nnoremap ,È :%s/È/\&Egrave;/g<CR>
-nnoremap ,í :%s/í/\&iacute;/g<CR>
-nnoremap ,Í :%s/Í/\&Iacute;/g<CR>
-nnoremap ,ó :%s/ó/\&oacute;/g<CR>
-nnoremap ,Ó :%s/Ó/\&Oacute;/g<CR>
-nnoremap ,ú :%s/ú/\&uacute;/g<CR>
-nnoremap ,Ú :%s/Ú/\&Uacute;/g<CR>
+nnoremap <leader>ç :%s/ç/\&ccedil;/g<CR>
+nnoremap <leader>ã :%s/ã/\&atilde;/g<CR>
+nnoremap <leader>Ã :%s/Ã/\&Atilde;/g<CR>
+nnoremap <leader>á :%s/á/\&aacute;/g<CR>
+nnoremap <leader>Á :%s/Á/\&Aacute;/g<CR>
+nnoremap <leader>à :%s/à/\&agrave;/g<CR>
+nnoremap <leader>À :%s/À/\&Agrave;/g<CR>
+nnoremap <leader>é :%s/é/\&eacute;/g<CR>
+nnoremap <leader>É :%s/É/\&Eacute;/g<CR>
+nnoremap <leader>è :%s/è/\&egrave;/g<CR>
+nnoremap <leader>È :%s/È/\&Egrave;/g<CR>
+nnoremap <leader>í :%s/í/\&iacute;/g<CR>
+nnoremap <leader>Í :%s/Í/\&Iacute;/g<CR>
+nnoremap <leader>ó :%s/ó/\&oacute;/g<CR>
+nnoremap <leader>Ó :%s/Ó/\&Oacute;/g<CR>
+nnoremap <leader>ú :%s/ú/\&uacute;/g<CR>
+nnoremap <leader>Ú :%s/Ú/\&Uacute;/g<CR>
 
 " Highlights the word under the cursor by pressing ^m
 nnoremap <C-M> :call HighlightNearCursor()<CR>

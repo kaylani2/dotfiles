@@ -36,6 +36,7 @@ declare -a developmentPackages=(
 'libboost-all-dev'
 'lua5.3'
 'perl'
+'perl-doc'
 'virtualbox'
 )
 
@@ -103,6 +104,7 @@ declare -a miscellaneousPackages=(
 'fritzing'
 'fritzing-data'
 'fritzing-parts'
+'qtiplot'
 )
 
 declare -a securityPackages=(
