@@ -26,6 +26,19 @@
 # 
 # 
 
+# Using these for raspberry pi fresh intalls
+declare -a piPackages=(
+'vim'
+'git'
+'python3'
+'tmux' #terminal multiplexer
+'curl' #data transfer tool
+'evince'
+'firefox'
+'password-gorilla'
+#'nmap'
+)
+
 declare -a developmentPackages=(
 'vim'
 'sublime-text'
@@ -37,7 +50,11 @@ declare -a developmentPackages=(
 'lua5.3'
 'perl'
 'perl-doc'
+'perlqt-dev' #extern.h ?
 'virtualbox'
+'doxygen' # documentation and UML
+'doxygen-gui' # documentation and UML
+'nodejs' # required for node-red
 )
 
 declare -a pythonPackages=(
@@ -91,12 +108,14 @@ declare -a multimediaPackages=(
 'pinta'
 'clementine' #mp3 player
 'handbrake' #media converter
+'openshot' #video editing
 #youtube-dl must be installed through pip to get the latest version
 #something here will stop the process and ask something, don't know what it is yet
 )
 
 declare -a miscellaneousPackages=(  
 'firefox'
+'gparted'
 'deluge'
 'octave'
 'arduino'
@@ -105,6 +124,7 @@ declare -a miscellaneousPackages=(
 'fritzing-data'
 'fritzing-parts'
 'qtiplot'
+'balena-etcher-electron'
 )
 
 declare -a securityPackages=(
@@ -114,12 +134,16 @@ declare -a securityPackages=(
 'obfsproxy'
 'tor'
 'nmap'
+'nikto'
+'netdiscover' #arp reconnaisance tool
 #'macchanger' #macchanger will ask if the MAC adress should be changed on its own
 #'wireshark' #wireshark will ask if regular users should be able to capture packets
 )
 
 declare -a pipPackages=(
+'pip' # always upgrade pip itself
 'youtube-dl'
+#'paho-mqtt' # python mqtt client
 # youtube-dl -v -x --audio-format mp3 --playlist-start <NUMBER> --playlist-end <NUMBER> <CHANNEL_URL> 
 )
 
@@ -144,7 +168,13 @@ echo ${multimediaPackages[@]}
 echo
 echo Pip Packages:
 echo ${pipPackages[@]}
+#echo Pi Packages:
+#echo ${piPackages[@]}
+#echo
 
+# \/ installing etcher (image burner)
+echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
 
 apt-get update
 apt-get install -y ${developmentPackages[@]}
@@ -155,7 +185,7 @@ apt-get install -y ${latexPackages[@]}
 apt-get install -y ${miscellaneousPackages[@]}
 apt-get install -y ${securityPackages[@]}
 apt-get install -y ${multimediaPackages[@]}
-pip install --upgrade $(pipPackages[@])
+pip install --upgrade ${pipPackages[@]}
 
 # \/ this line will ask for confirmation
 #add-apt-repository ppa:dawidd0811/neofetch
@@ -183,3 +213,7 @@ pip install --upgrade $(pipPackages[@])
 #sudo bash ./airgeddon.sh
 # Remember to manually install the dependencies for airgeddon
 # Note: airgeddon makes a lot of noise, change your MAC before using it FOR GOOD THINGS
+
+# \/ nodejs binaries are distributed by NodeSource
+curl -sL https://deb.nodesource.com/setup_11.x | bash -
+apt-get install -y nodejs
