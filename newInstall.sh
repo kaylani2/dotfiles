@@ -11,7 +11,7 @@
 # apt-cache show <PACKAGE> -> show information about a package
 # dpkg -i <PACKAGE>.deb -> install a .deb package
 # echo $? -> output last code returned to the shell
-#
+# sudo grep -r '^psk=' /etc/NetworkManager/system-connections/ -> show saved SSID and passwords
 #
 
 
@@ -106,6 +106,7 @@ declare -a multimediaPackages=(
 'guitarix' #rock guitar amplifier for Jack
 'qjackctl' #user interface for controlling JACK (Jack Audio Connection Kit)
 'pinta'
+'img2pdf'
 'clementine' #mp3 player
 'handbrake' #media converter
 'openshot' #video editing
@@ -132,7 +133,7 @@ declare -a securityPackages=(
 'steghide'
 'proxychains'
 'obfsproxy'
-'tor'
+#'tor'
 'nmap'
 'nikto'
 'netdiscover' #arp reconnaisance tool
@@ -215,5 +216,5 @@ pip install --upgrade ${pipPackages[@]}
 # Note: airgeddon makes a lot of noise, change your MAC before using it FOR GOOD THINGS
 
 # \/ nodejs binaries are distributed by NodeSource
-curl -sL https://deb.nodesource.com/setup_11.x | bash -
-apt-get install -y nodejs
+#curl -sL https://deb.nodesource.com/setup_11.x | bash -
+#apt-get install -y nodejs
