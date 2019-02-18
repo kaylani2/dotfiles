@@ -15,18 +15,7 @@
 #
 
 
-###############################################################
-######################### Git Basics ##########################
-###############################################################
-# 
-# git init <PATH> -> initialize a git repository on <PATH>
-# git status
-# git add <FILE> 
-# git commit 
-# 
-# 
-
-# Using these for raspberry pi fresh intalls
+# Using these for raspberry pi fresh installs
 declare -a piPackages=(
 'vim'
 'git'
@@ -34,8 +23,9 @@ declare -a piPackages=(
 'tmux' #terminal multiplexer
 'curl' #data transfer tool
 'evince'
-'firefox'
+'firefox-esr'
 'password-gorilla'
+'locate'
 #'nmap'
 )
 
@@ -60,11 +50,10 @@ declare -a developmentPackages=(
 declare -a pythonPackages=(
 'python3'
 'python3-numpy'
-'python3-matplotlib' #required for using the mnist database
+'python3-matplotlib' # required for using the mnist database
 'python3-tk'
 'python-matplotlib'
-'python-setuptools'
-# pip /\
+'python-setuptools' # pip
 )
 
 declare -a javaPackages=(
@@ -92,7 +81,7 @@ declare -a shellToolsPackages=(
 
 
 declare -a latexPackages=(
-'texlive-full'
+#'texlive-full' #full is really heavy
 'evince'
 )
 
@@ -119,13 +108,15 @@ declare -a miscellaneousPackages=(
 'gparted'
 'deluge'
 'octave'
-'arduino'
+#'arduino' # Get arduino from the official website, the apt-get version is SOMEWHAT deprecated
 'okteta'
 'fritzing'
 'fritzing-data'
 'fritzing-parts'
 'qtiplot'
-'balena-etcher-electron'
+'balena-etcher-electron' # image burner
+#'mosquitto' # mqtt broker
+'mosquitto-clients' # mqtt client (pub/sub)
 )
 
 declare -a securityPackages=(
@@ -137,7 +128,7 @@ declare -a securityPackages=(
 'nmap'
 'nikto'
 'netdiscover' #arp reconnaisance tool
-#'macchanger' #macchanger will ask if the MAC adress should be changed on its own
+#'macchanger' #macchanger will ask if the MAC address should be changed on its own
 #'wireshark' #wireshark will ask if regular users should be able to capture packets
 )
 
@@ -148,73 +139,93 @@ declare -a pipPackages=(
 # youtube-dl -v -x --audio-format mp3 --playlist-start <NUMBER> --playlist-end <NUMBER> <CHANNEL_URL> 
 )
 
-cd ~
-echo Devolopment Packages:
-echo ${developmentPackages[@]}
-echo
-echo Shell Tools:
-echo ${shellToolsPackages[@]}
-echo
-echo Latex:
-echo ${latexPackages[@]}
-echo
-echo Miscellaneous:
-echo ${miscellaneousPackages[@]}
-echo
-echo Security:
-echo ${securityPackages[@]}
-echo
-echo Multimedia:
-echo ${multimediaPackages[@]}
-echo
-echo Pip Packages:
-echo ${pipPackages[@]}
-#echo Pi Packages:
-#echo ${piPackages[@]}
-#echo
 
-# \/ installing etcher (image burner)
-echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
+if [ $# -eq 0 ]; then
+    echo "Usage: bash $0 [pi | notPi]"
+    exit 1
+fi
 
-apt-get update
-apt-get install -y ${developmentPackages[@]}
-apt-get install -y ${shellToolsPackages[@]}
-apt-get install -y ${pythonPackages[@]}
-apt-get install -y ${javaPackages[@]}
-apt-get install -y ${latexPackages[@]}
-apt-get install -y ${miscellaneousPackages[@]}
-apt-get install -y ${securityPackages[@]}
-apt-get install -y ${multimediaPackages[@]}
-pip install --upgrade ${pipPackages[@]}
+if [ $1 == "pi" ]; then
+  cd ~
+  echo Pi Packages:
+  echo ${piPackages[@]}
+  echo
+  sudo apt-get update
+  sudo apt-get upgrade
+  sudo apt-get install -y ${piPackages[@]}
+  cd ~/dotfiles
+  mv .vimrc ~/
+  mv .tmux.comf ~/
+  return 0
+fi
 
-# \/ this line will ask for confirmation
-#add-apt-repository ppa:dawidd0811/neofetch
-#apt-get update
-#apt-get install neofetch
+if [ $1 == "notPi" ]; then
+  cd ~
+  echo Devolopment Packages:
+  echo ${developmentPackages[@]}
+  echo
+  echo Shell Tools:
+  echo ${shellToolsPackages[@]}
+  echo
+  echo Latex:
+  echo ${latexPackages[@]}
+  echo
+  echo Miscellaneous:
+  echo ${miscellaneousPackages[@]}
+  echo
+  echo Security:
+  echo ${securityPackages[@]}
+  echo
+  echo Multimedia:
+  echo ${multimediaPackages[@]}
+  echo
+  echo Pip Packages:
+  echo ${pipPackages[@]}
 
-#git clone https://github.com/kaylani2/dotfiles
-#cd dotfiles
-#cp .vimrc ~/.vimrc
-#cp .tmux.conf ~/.tmux.conf
-#cd ..
-#rm -rf dotfiles
+  apt-get update
+  # \/ installing etcher (image burner)
+  echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
+  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
+  apt-get install -y ${developmentPackages[@]}
+  apt-get install -y ${shellToolsPackages[@]}
+  apt-get install -y ${pythonPackages[@]}
+  apt-get install -y ${javaPackages[@]}
+  apt-get install -y ${latexPackages[@]}
+  apt-get install -y ${miscellaneousPackages[@]}
+  apt-get install -y ${securityPackages[@]}
+  apt-get install -y ${multimediaPackages[@]}
+  pip install --upgrade ${pipPackages[@]}
 
-# \/Add the build repository and install the Metasploit Framework package:
-#curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
-#\/ Starts, must configure database on the first run
-#msfconsole
-#\/ Show status
-#db_status
-#msfupdate
 
-# \/ Airgeddon framework
-#git clone github.com/v1s1t0r1sh3r3/airgeddon.git
-#cd airgeddon
-#sudo bash ./airgeddon.sh
-# Remember to manually install the dependencies for airgeddon
-# Note: airgeddon makes a lot of noise, change your MAC before using it FOR GOOD THINGS
+  # \/ this line will ask for confirmation
+  #add-apt-repository ppa:dawidd0811/neofetch
+  #apt-get update
+  #apt-get install neofetch
 
-# \/ nodejs binaries are distributed by NodeSource
-#curl -sL https://deb.nodesource.com/setup_11.x | bash -
-#apt-get install -y nodejs
+  #git clone https://github.com/kaylani2/dotfiles
+  #cd dotfiles
+  #cp .vimrc ~/.vimrc
+  #cp .tmux.conf ~/.tmux.conf
+  #cd ..
+  #rm -rf dotfiles
+
+  # \/Add the build repository and install the Metasploit Framework package:
+  #curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
+  #\/ Starts, must configure database on the first run
+  #msfconsole
+  #\/ Show status
+  #db_status
+  #msfupdate
+
+  # \/ Airgeddon framework
+  #git clone github.com/v1s1t0r1sh3r3/airgeddon.git
+  #cd airgeddon
+  #sudo bash ./airgeddon.sh
+  # Remember to manually install the dependencies for airgeddon
+  # Note: airgeddon makes a lot of noise, change your MAC before using it FOR GOOD THINGS
+
+  # \/ nodejs binaries are distributed by NodeSource
+  #curl -sL https://deb.nodesource.com/setup_11.x | bash -
+  #apt-get install -y nodejs
+  return 0
+fi # fi notPi
