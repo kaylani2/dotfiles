@@ -26,6 +26,7 @@ declare -a piPackages=(
 'firefox-esr'
 'password-gorilla'
 'locate'
+'software-properties-common' # add-apt-repository
 #'nmap'
 )
 
@@ -116,7 +117,7 @@ declare -a miscellaneousPackages=(
 'qtiplot'
 'balena-etcher-electron' # image burner
 #'mosquitto' # mqtt broker
-'mosquitto-clients' # mqtt client (pub/sub)
+#'mosquitto-clients' # mqtt client (pub/sub)
 )
 
 declare -a securityPackages=(
@@ -150,13 +151,18 @@ if [ $1 == "pi" ]; then
   echo Pi Packages:
   echo ${piPackages[@]}
   echo
-  sudo apt-get update
-  sudo apt-get upgrade
+  sudo apt-get -y update
+  sudo apt-get -y upgrade
+  sudo apt-get -y dist-upgrade
   sudo apt-get install -y ${piPackages[@]}
   cd ~/dotfiles
   mv .vimrc ~/
-  mv .tmux.comf ~/
-  return 0
+  mv .tmux.conf ~/
+  cd ..
+  rm -rf dotfiles
+  echo "alias l='ls -lh'" | sudo tee -a ~/.bashrc
+  echo "alias tt='tmux'" | sudo tee -a ~/.bashrc
+  exit 0
 fi
 
 if [ $1 == "notPi" ]; then
@@ -227,5 +233,5 @@ if [ $1 == "notPi" ]; then
   # \/ nodejs binaries are distributed by NodeSource
   #curl -sL https://deb.nodesource.com/setup_11.x | bash -
   #apt-get install -y nodejs
-  return 0
+  exit 0
 fi # fi notPi
