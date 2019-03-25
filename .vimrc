@@ -176,6 +176,11 @@ nnoremap <C-H> 4h
 "nnoremap j gj
 "nnoremap k gk
 
+" Move easily between tabs
+map <C-P> :tabp<cr>
+map <C-N> :tabn<cr>
+
+
 " Eliminate esc delay
 set ttimeoutlen=100
 
@@ -214,8 +219,13 @@ nnoremap <leader>í :%s/í/\&iacute;/g<CR>
 nnoremap <leader>Í :%s/Í/\&Iacute;/g<CR>
 nnoremap <leader>ó :%s/ó/\&oacute;/g<CR>
 nnoremap <leader>Ó :%s/Ó/\&Oacute;/g<CR>
+nnoremap <leader>ô :%s/ô/\&ocirc;/g<CR>
+nnoremap <leader>Ô :%s/Ô/\&Ocirc;/g<CR>
 nnoremap <leader>ú :%s/ú/\&uacute;/g<CR>
 nnoremap <leader>Ú :%s/Ú/\&Uacute;/g<CR>
+
+" Just to parse data fetched from influxdb with curl
+nnoremap <leader>, :%s/],/]\r/g<CR>:%s/-/\//g<CR>:%s/T/_/g<CR>:%s/.\d\+Z",/ /g<CR>:%s/"\S\+",\S\+,"\S\+",//<CR>:%s/]//<CR>:%s/]\S\+//<CR>:%s/\["//<CR>
 
 " Highlights the word under the cursor by pressing ^m
 nnoremap <C-M> :call HighlightNearCursor()<CR>
