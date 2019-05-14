@@ -50,11 +50,13 @@ declare -a developmentPackages=(
 
 declare -a pythonPackages=(
 'python3'
+'python3-pip'
 'python3-numpy'
-'python3-matplotlib' # required for using the mnist database
+'python3-matplotlib' 
 'python3-tk'
 'python-matplotlib'
 'python-setuptools' # pip
+'cmake'
 )
 
 declare -a javaPackages=(
@@ -109,7 +111,7 @@ declare -a miscellaneousPackages=(
 'gparted'
 'deluge'
 'octave'
-#'arduino' # Get arduino from the official website, the apt-get version is SOMEWHAT deprecated
+#'arduino' # Get arduino from the official website, the apt-get version is "SOMEWHAT" deprecated
 'okteta'
 'fritzing'
 'fritzing-data'
@@ -123,9 +125,9 @@ declare -a miscellaneousPackages=(
 declare -a securityPackages=(
 'password-gorilla'
 'steghide'
-'proxychains'
+#'proxychains'
 'obfsproxy'
-#'tor'
+#'tor' #bulky
 'nmap'
 'nikto'
 'netdiscover' #arp reconnaisance tool
@@ -194,13 +196,13 @@ if [ $1 == "notPi" ]; then
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
   apt-get install -y ${developmentPackages[@]}
   apt-get install -y ${shellToolsPackages[@]}
-  apt-get install -y ${pythonPackages[@]}
   apt-get install -y ${javaPackages[@]}
   apt-get install -y ${latexPackages[@]}
   apt-get install -y ${miscellaneousPackages[@]}
   apt-get install -y ${securityPackages[@]}
   apt-get install -y ${multimediaPackages[@]}
-  pip install --upgrade ${pipPackages[@]}
+  #apt-get install -y ${pythonPackages[@]} ## removed until fixed
+  #pip3 install --upgrade ${pipPackages[@]}
 
 
   # \/ this line will ask for confirmation
