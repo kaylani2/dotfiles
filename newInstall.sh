@@ -85,6 +85,7 @@ declare -a shellToolsPackages=(
 
 
 declare -a latexPackages=(
+'texlive' #regular texlive is pretty bare bone, using it could be a headache
 #'texlive-full' #full is really heavy
 'evince'
 )
