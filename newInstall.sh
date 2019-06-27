@@ -80,6 +80,7 @@ declare -a shellToolsPackages=(
 'ranger' #file manager - nice mass renamer function
 'curl' #data transfer tool
 'wget' #web file retriever
+'unrar' #decompress .rar files
 )
 
 
