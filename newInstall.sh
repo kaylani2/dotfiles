@@ -12,6 +12,7 @@
 # dpkg -i <PACKAGE>.deb -> install a .deb package
 # echo $? -> output last code returned to the shell
 # sudo grep -r '^psk=' /etc/NetworkManager/system-connections/ -> show saved SSID and passwords
+# for d in ./*/ ; do (cd "$d" && touch it_werks); done -> enters every subdirectory (one level) and executes a command
 #
 
 
@@ -52,7 +53,6 @@ declare -a pythonPackages=(
 'python3'
 'python3-pip'
 'python3-numpy'
-'python3-matplotlib' 
 'python3-tk'
 'python-matplotlib'
 'python-setuptools' # pip
@@ -90,7 +90,7 @@ declare -a latexPackages=(
 
 declare -a multimediaPackages=(  
 'vlc'
-'libav-tools'
+#'libav-tools'
 'ffmpeg'
 'audacity'
 'fmit' #bass tuner
@@ -168,6 +168,10 @@ if [ $1 == "pi" ]; then
 fi
 
 if [ $1 == "notPi" ]; then
+  echo \$TERM:
+  echo $TERM
+  echo Select your new default text editor:
+  update-alternatives --config editor
   cd ~
   echo Devolopment Packages:
   echo ${developmentPackages[@]}
