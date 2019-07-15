@@ -80,10 +80,12 @@ declare -a shellToolsPackages=(
 'ranger' #file manager - nice mass renamer function
 'curl' #data transfer tool
 'wget' #web file retriever
+'unrar' #decompress .rar files
 )
 
 
 declare -a latexPackages=(
+'texlive' #regular texlive is pretty bare bone, using it could be a headache
 #'texlive-full' #full is really heavy
 'evince'
 )
