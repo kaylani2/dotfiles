@@ -241,5 +241,18 @@ if [ $1 == "notPi" ]; then
   # \/ nodejs binaries are distributed by NodeSource
   #curl -sL https://deb.nodesource.com/setup_11.x | bash -
   #apt-get install -y nodejs
+
+
+  ## \/ Install docker
+  #echo "Installing Docker..."
+  #sudo apt remove docker docker-engine docker.io containerd runc
+  #sudo apt update
+  #curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  #sudo apt-key fingerprint 0EBFCD88
+  #sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+  #sudo apt update
+  #sudo apt install docker-ce docker-ce-cli containerd.io
+  #sudo gpasswd -a "${USER}" docker
+
   exit 0
 fi # fi notPi
