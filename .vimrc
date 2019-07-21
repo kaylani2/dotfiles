@@ -83,6 +83,9 @@
 	" zg -> tags word as good word
 	" zw -> tags word as bad word
 
+" Syntax file and other settings for TypeScript.
+" git clone https://github.com/leafgarland/typescript-vim.git ~/.vim/pack/typescript/start/typescript-vim
+
 " #################################################
 " #################################################
 " #################################################
@@ -223,6 +226,9 @@ nnoremap <leader>ô :%s/ô/\&ocirc;/g<CR>
 nnoremap <leader>Ô :%s/Ô/\&Ocirc;/g<CR>
 nnoremap <leader>ú :%s/ú/\&uacute;/g<CR>
 nnoremap <leader>Ú :%s/Ú/\&Uacute;/g<CR>
+
+" Flag to disable Typescript indenting (plugin)
+let g:typescript_indent_disable = 1
 
 " Just to parse data fetched from influxdb with curl
 nnoremap <leader>, :%s/],/]\r/g<CR>:%s/-/\//g<CR>:%s/T/_/g<CR>:%s/.\d\+Z",/ /g<CR>:%s/"\S\+",\S\+,"\S\+",//<CR>:%s/]//<CR>:%s/]\S\+//<CR>:%s/\["//<CR>

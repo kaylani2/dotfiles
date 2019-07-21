@@ -253,6 +253,9 @@ if [ $1 == "notPi" ]; then
   #sudo apt update
   #sudo apt install docker-ce docker-ce-cli containerd.io
   #sudo gpasswd -a "${USER}" docker
+  
+  ## \/ Add Syntax file and other settings for TypeScript.
+  #git clone https://github.com/leafgarland/typescript-vim.git ~/.vim/pack/typescript/start/typescript-vim
 
   exit 0
 fi # fi notPi
