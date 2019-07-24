@@ -230,6 +230,10 @@ nnoremap <leader>Ú :%s/Ú/\&Uacute;/g<CR>
 " Flag to disable Typescript indenting (plugin)
 let g:typescript_indent_disable = 1
 
+" Adjust TCGPlayer list to tappedout format
+nnoremap <leader>. :%s/\[.\+//g<CR>:%s/(.\+//g<CR>
+nnoremap <leader>; :%s/\d\+/&x/g<CR>
+
 " Just to parse data fetched from influxdb with curl
 nnoremap <leader>, :%s/],/]\r/g<CR>:%s/-/\//g<CR>:%s/T/_/g<CR>:%s/.\d\+Z",/ /g<CR>:%s/"\S\+",\S\+,"\S\+",//<CR>:%s/]//<CR>:%s/]\S\+//<CR>:%s/\["//<CR>
 
