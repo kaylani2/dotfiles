@@ -253,8 +253,13 @@ if [ $1 == "notPi" ]; then
   #sudo apt update
   #sudo apt install docker-ce docker-ce-cli containerd.io
   #sudo gpasswd -a "${USER}" docker
+
+  ## \/ Install awscli and aws-sam
+  #pip3 install pyyaml --verbose
+  #pip3 install --upgrade --user awscli
+  #pip3 install --user aws-sam-cli
   
-  ## \/ Add Syntax file and other settings for TypeScript.
+  ## \/ Add Syntax file and other settings for TypeScript on Vim.
   #git clone https://github.com/leafgarland/typescript-vim.git ~/.vim/pack/typescript/start/typescript-vim
 
   exit 0
