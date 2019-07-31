@@ -47,6 +47,7 @@ declare -a developmentPackages=(
 'doxygen' # documentation and UML
 'doxygen-gui' # documentation and UML
 'nodejs' # required for node-red
+'xclip' # required for formatting ssh keys into bitbucket
 )
 
 declare -a pythonPackages=(
