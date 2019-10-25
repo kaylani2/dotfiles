@@ -4,7 +4,7 @@
 # these will be commented at the end of the script
 
 ###############################################################
-###################### Beginners Section ###################### 
+###################### Beginners Section ######################
 ###############################################################
 #
 # ps -p $$ -> outputs the name of your shell
@@ -43,7 +43,7 @@ declare -a developmentPackages=(
 'perl'
 'perl-doc'
 'perlqt-dev' #extern.h ?
-'virtualbox'
+'virtualbox-qt'
 'doxygen' # documentation and UML
 'doxygen-gui' # documentation and UML
 'nodejs' # required for node-red
@@ -58,6 +58,7 @@ declare -a pythonPackages=(
 'python-matplotlib'
 'python-setuptools' # pip
 'cmake'
+'setuptools'
 )
 
 declare -a javaPackages=(
@@ -91,7 +92,7 @@ declare -a latexPackages=(
 'evince'
 )
 
-declare -a multimediaPackages=(  
+declare -a multimediaPackages=(
 'vlc'
 #'libav-tools'
 'ffmpeg'
@@ -109,7 +110,7 @@ declare -a multimediaPackages=(
 #something here will stop the process and ask something, don't know what it is yet
 )
 
-declare -a miscellaneousPackages=(  
+declare -a miscellaneousPackages=(
 'firefox'
 'gparted'
 'deluge'
@@ -123,6 +124,7 @@ declare -a miscellaneousPackages=(
 'balena-etcher-electron' # image burner
 #'mosquitto' # mqtt broker
 #'mosquitto-clients' # mqtt client (pub/sub)
+'djview4' # convert .djvu to .pdf
 )
 
 declare -a securityPackages=(
@@ -139,10 +141,18 @@ declare -a securityPackages=(
 )
 
 declare -a pipPackages=(
-'pip' # always upgrade pip itself
+'pip3' # always upgrade pip itself
 'youtube-dl'
+'pandas'
+'numpy'
+'scipy'
+'ipython'
+'scikit-learn'
+'matplotlib'
+'mglearn'
+'xlrd' # enable pandas to read excel
 #'paho-mqtt' # python mqtt client
-# youtube-dl -v -x --audio-format mp3 --playlist-start <NUMBER> --playlist-end <NUMBER> <CHANNEL_URL> 
+# youtube-dl -v -x --audio-format mp3 --playlist-start <NUMBER> --playlist-end <NUMBER> <CHANNEL_URL>
 )
 
 
@@ -209,7 +219,7 @@ if [ $1 == "notPi" ]; then
   apt-get install -y ${securityPackages[@]}
   apt-get install -y ${multimediaPackages[@]}
   #apt-get install -y ${pythonPackages[@]} ## removed until fixed
-  #pip3 install --upgrade ${pipPackages[@]}
+  pip3 install --upgrade ${pipPackages[@]}
 
 
   # \/ this line will ask for confirmation
@@ -259,7 +269,7 @@ if [ $1 == "notPi" ]; then
   #pip3 install pyyaml --verbose
   #pip3 install --upgrade --user awscli
   #pip3 install --user aws-sam-cli
-  
+
   ## \/ Add Syntax file and other settings for TypeScript on Vim.
   #git clone https://github.com/leafgarland/typescript-vim.git ~/.vim/pack/typescript/start/typescript-vim
 
