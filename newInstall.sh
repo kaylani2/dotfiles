@@ -14,6 +14,7 @@
 # sudo grep -r '^psk=' /etc/NetworkManager/system-connections/ -> show saved SSID and passwords
 # for d in ./*/ ; do (cd "$d" && touch it_werks); done -> enters every subdirectory (one level) and executes a command
 #
+# for i in *' '*; do   mv "$i" `echo $i | sed -e 's/ /_/g'`; done ## TURN SPACES INTO UNDERSCORES
 
 
 # Using these for raspberry pi fresh installs
@@ -106,6 +107,7 @@ declare -a multimediaPackages=(
 'clementine' #mp3 player
 'handbrake' #media converter
 'openshot' #video editing
+'imagemagick' # convert .gif to .png frames and .jpg images into .pdf bundle
 #youtube-dl must be installed through pip to get the latest version
 #something here will stop the process and ask something, don't know what it is yet
 )
@@ -151,6 +153,10 @@ declare -a pipPackages=(
 'matplotlib'
 'mglearn'
 'xlrd' # enable pandas to read excel
+'keras' # sequential model for neural networks
+'tensorflow' # dependency for keras
+'tensorflow-datasets'
+'sympy' # symbolic mathematics, useful for plotting
 #'paho-mqtt' # python mqtt client
 # youtube-dl -v -x --audio-format mp3 --playlist-start <NUMBER> --playlist-end <NUMBER> <CHANNEL_URL>
 )
