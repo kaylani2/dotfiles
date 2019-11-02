@@ -8,13 +8,20 @@
 ###############################################################
 #
 # ps -p $$ -> outputs the name of your shell
+#
 # apt-cache show <PACKAGE> -> show information about a package
+#
 # dpkg -i <PACKAGE>.deb -> install a .deb package
+#
 # echo $? -> output last code returned to the shell
+#
 # sudo grep -r '^psk=' /etc/NetworkManager/system-connections/ -> show saved SSID and passwords
+#
 # for d in ./*/ ; do (cd "$d" && touch it_werks); done -> enters every subdirectory (one level) and executes a command
 #
 # for i in *' '*; do   mv "$i" `echo $i | sed -e 's/ /_/g'`; done ## TURN SPACES INTO UNDERSCORES
+#
+# convert -coalesce file_name.gif file_name.png ## CONVERTS A GIF INTO A BUNCH OF PNGs
 
 
 # Using these for raspberry pi fresh installs
@@ -153,10 +160,13 @@ declare -a pipPackages=(
 'matplotlib'
 'mglearn'
 'xlrd' # enable pandas to read excel
-'keras' # sequential model for neural networks
+'keras' # sequential model for neural networks, frontend for tensorflow (amongst others)
+## you have to use the flag --ignore-installed when installing tensorflow
 'tensorflow' # dependency for keras
 'tensorflow-datasets'
+'tflearn' # yet another wrapper for tensorflow
 'sympy' # symbolic mathematics, useful for plotting
+'joblib'
 #'paho-mqtt' # python mqtt client
 # youtube-dl -v -x --audio-format mp3 --playlist-start <NUMBER> --playlist-end <NUMBER> <CHANNEL_URL>
 )
