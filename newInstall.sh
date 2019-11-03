@@ -67,6 +67,7 @@ declare -a pythonPackages=(
 'python-setuptools' # pip
 'cmake'
 'setuptools'
+'graphviz'
 )
 
 declare -a javaPackages=(
@@ -167,6 +168,7 @@ declare -a pipPackages=(
 'tflearn' # yet another wrapper for tensorflow
 'sympy' # symbolic mathematics, useful for plotting
 'joblib'
+'graphviz' # useful for visualization of decision trees in scikit
 #'paho-mqtt' # python mqtt client
 # youtube-dl -v -x --audio-format mp3 --playlist-start <NUMBER> --playlist-end <NUMBER> <CHANNEL_URL>
 )
