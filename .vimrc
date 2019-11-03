@@ -4,7 +4,7 @@
 " Don't put anything in your .vimrc you don't understand!
 
 " #################################################
-" ############### Beginners section ############### 
+" ############### Beginners section ###############
 " #################################################
 " ^ -> Ctrl
 " <CR> -> Carriage return (Enter)
@@ -44,7 +44,7 @@
 	" ^n -> displays autocomplete
 	" ^x^n -> displays autocomplete for just this file
 	" ^x^f -> same, but just for filenames
-	" * # g* g#     : find word under cursor (forwards/backwards) 
+	" * # g* g#     : find word under cursor (forwards/backwards)
 	" ga      : display hex, ascii value of character under cursor
 	" g8      : display hex value of utf-8 character under cursor
 	" ggg?G   : rot13 whole file
@@ -74,7 +74,7 @@
 	" @{register}
 "
 " #################################################
-"# Spellchecker 
+"# Spellchecker
 "
 	" :setlocal spell! spelllang=en_us -> toggles spellcheck in english
 	" ]s -> moves to next misspelled word
@@ -90,7 +90,7 @@
 " #################################################
 " #################################################
 
-	
+
 
 " Just get over VI, person
 set nocompatible
@@ -98,7 +98,7 @@ set nocompatible
 " change the mapleader from \ to ,
 let mapleader = ","
 
-" The standard color scheme looks shitty with tmux 
+" The standard color scheme looks shitty with tmux
 colorscheme desert
 set background=dark
 
@@ -108,7 +108,7 @@ set number
 set relativenumber
 set rulerformat=%l\:%c
 set tabstop=2
-set softtabstop=2
+"set softtabstop=2
 set shiftwidth=2
 set expandtab
 " /\ tabs are spaces now
@@ -200,6 +200,13 @@ set wildmenu
 " Use ^t to jump back up the tag stack
 command! MakeTags !ctags -R .
 
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
 
 
 " Read from the .skeleton.html file (a little template)
@@ -227,6 +234,10 @@ nnoremap <leader>Ô :%s/Ô/\&Ocirc;/g<CR>
 nnoremap <leader>ú :%s/ú/\&uacute;/g<CR>
 nnoremap <leader>Ú :%s/Ú/\&Uacute;/g<CR>
 
+" Let us keep a nice indentation
+nnoremap <leader>( :%s/\(\S\)(/\1\ (/g<CR>
+"nnoremap <leader>[ :%s/\(\S\)\[/\1\ (/g<CR>
+
 " Flag to disable Typescript indenting (plugin)
 let g:typescript_indent_disable = 1
 
@@ -235,7 +246,28 @@ nnoremap <leader>. :%s/\[.\+//g<CR>:%s/(.\+//g<CR>
 nnoremap <leader>; :%s/\d\+/&x/g<CR>
 
 " Just to parse data fetched from influxdb with curl
-nnoremap <leader>, :%s/],/]\r/g<CR>:%s/-/\//g<CR>:%s/T/_/g<CR>:%s/.\d\+Z",/ /g<CR>:%s/"\S\+",\S\+,"\S\+",//<CR>:%s/]//<CR>:%s/]\S\+//<CR>:%s/\["//<CR>
+nnoremap <leader>ź :%s/],/]\r/g<CR>:%s/-/\//g<CR>:%s/T/_/g<CR>:%s/.\d\+Z",/ /g<CR>:%s/"\S\+",\S\+,"\S\+",//<CR>:%s/]//<CR>:%s/]\S\+//<CR>:%s/\["//<CR>
+
+" Turn f() into f ()
+nnoremap <leader>( :%s/\(\S\)\((\)/\1\ \2/g<CR>
+" Turn f () into f()
+nnoremap <leader>) :%s/\(\s\)\((\)/(/g<CR>
+
+" Turn f[] into f []
+nnoremap <leader>[ :%s/\(\S\)\(\[\)/\1\ \2/g<CR>
+" Turn f [] into f[]
+nnoremap <leader>] :%s/\(\s\)\(\[\)/[/g<CR>
+
+" Turn x=y into x = y
+nnoremap <leader>= :%s/\(\S\)=\(\S\)/\1 = \2/g<CR>
+" Turn x =y into x = y
+nnoremap <leader>_ :%s/\(\S\)=\(\s\)/\1 =\2/g<CR>
+" Turn x= y into x = y
+nnoremap <leader>- :%s/\(\s\)=\(\S\)/\1= \2/g<CR>
+
+" Turn X,Y into X, Y
+nnoremap <leader>, :%s/\(\S\)\(,\)\(\S\)/\1\2\ \3/g<CR>
+
 
 " Highlights the word under the cursor by pressing ^m
 nnoremap <C-M> :call HighlightNearCursor()<CR>
