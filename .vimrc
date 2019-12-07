@@ -214,25 +214,48 @@ autocmd BufWinLeave * call clearmatches()
 
 
 " HTML shenanigans
-nnoremap <leader>ç :%s/ç/\&ccedil;/g<CR>
-nnoremap <leader>ã :%s/ã/\&atilde;/g<CR>
-nnoremap <leader>Ã :%s/Ã/\&Atilde;/g<CR>
-nnoremap <leader>á :%s/á/\&aacute;/g<CR>
-nnoremap <leader>Á :%s/Á/\&Aacute;/g<CR>
-nnoremap <leader>à :%s/à/\&agrave;/g<CR>
-nnoremap <leader>À :%s/À/\&Agrave;/g<CR>
-nnoremap <leader>é :%s/é/\&eacute;/g<CR>
-nnoremap <leader>É :%s/É/\&Eacute;/g<CR>
-nnoremap <leader>è :%s/è/\&egrave;/g<CR>
-nnoremap <leader>È :%s/È/\&Egrave;/g<CR>
-nnoremap <leader>í :%s/í/\&iacute;/g<CR>
-nnoremap <leader>Í :%s/Í/\&Iacute;/g<CR>
-nnoremap <leader>ó :%s/ó/\&oacute;/g<CR>
-nnoremap <leader>Ó :%s/Ó/\&Oacute;/g<CR>
-nnoremap <leader>ô :%s/ô/\&ocirc;/g<CR>
-nnoremap <leader>Ô :%s/Ô/\&Ocirc;/g<CR>
-nnoremap <leader>ú :%s/ú/\&uacute;/g<CR>
-nnoremap <leader>Ú :%s/Ú/\&Uacute;/g<CR>
+"nnoremap <leader>ç :%s/ç/\&ccedil;/g<CR>
+"nnoremap <leader>ã :%s/ã/\&atilde;/g<CR>
+"nnoremap <leader>Ã :%s/Ã/\&Atilde;/g<CR>
+"nnoremap <leader>á :%s/á/\&aacute;/g<CR>
+"nnoremap <leader>Á :%s/Á/\&Aacute;/g<CR>
+"nnoremap <leader>à :%s/à/\&agrave;/g<CR>
+"nnoremap <leader>À :%s/À/\&Agrave;/g<CR>
+"nnoremap <leader>é :%s/é/\&eacute;/g<CR>
+"nnoremap <leader>É :%s/É/\&Eacute;/g<CR>
+"nnoremap <leader>è :%s/è/\&egrave;/g<CR>
+"nnoremap <leader>È :%s/È/\&Egrave;/g<CR>
+"nnoremap <leader>í :%s/í/\&iacute;/g<CR>
+"nnoremap <leader>Í :%s/Í/\&Iacute;/g<CR>
+"nnoremap <leader>ó :%s/ó/\&oacute;/g<CR>
+"nnoremap <leader>Ó :%s/Ó/\&Oacute;/g<CR>
+"nnoremap <leader>ô :%s/ô/\&ocirc;/g<CR>
+"nnoremap <leader>Ô :%s/Ô/\&Ocirc;/g<CR>
+"nnoremap <leader>ú :%s/ú/\&uacute;/g<CR>
+"nnoremap <leader>Ú :%s/Ú/\&Uacute;/g<CR>
+
+" Remove those damn diacritics
+nnoremap <leader>ç :%s/ç/c/g<CR>
+nnoremap <leader>ã :%s/ã/a/g<CR>
+nnoremap <leader>Ã :%s/Ã/A/g<CR>
+nnoremap <leader>â :%s/â/a/g<CR>
+nnoremap <leader>Â :%s/Â/A/g<CR>
+nnoremap <leader>á :%s/á/a/g<CR>
+nnoremap <leader>Á :%s/Á/A/g<CR>
+nnoremap <leader>à :%s/à/a/g<CR>
+nnoremap <leader>À :%s/À/A/g<CR>
+nnoremap <leader>é :%s/é/e/g<CR>
+nnoremap <leader>É :%s/É/E/g<CR>
+nnoremap <leader>è :%s/è/e/g<CR>
+nnoremap <leader>È :%s/È/E/g<CR>
+nnoremap <leader>í :%s/í/i/g<CR>
+nnoremap <leader>Í :%s/Í/I/g<CR>
+nnoremap <leader>ó :%s/ó/o/g<CR>
+nnoremap <leader>Ó :%s/Ó/O/g<CR>
+nnoremap <leader>ô :%s/ô/o/g<CR>
+nnoremap <leader>Ô :%s/Ô/O/g<CR>
+nnoremap <leader>ú :%s/ú/u/g<CR>
+nnoremap <leader>Ú :%s/Ú/U/g<CR>
 
 " Let us keep a nice indentation
 nnoremap <leader>( :%s/\(\S\)(/\1\ (/g<CR>
