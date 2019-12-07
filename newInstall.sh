@@ -22,6 +22,15 @@
 # for i in *' '*; do   mv "$i" `echo $i | sed -e 's/ /_/g'`; done ## TURN SPACES INTO UNDERSCORES
 #
 # convert -coalesce file_name.gif file_name.png ## CONVERTS A GIF INTO A BUNCH OF PNGs
+#
+# Synopsis: ffmpeg -i [input_file] -ss [start_seconds] -t [duration_seconds] [output_file]
+# \/ use FFmpeg cut mp4 video with re-encoding
+# ffmpeg -i source.mp4 -ss 00:00:05 -t 00:00:10 -async 1 -strict -2 cut_video.mp4 -> Extract part of a video with a one-line command
+#
+# ffmpeg -i input.mp4 -ss 01:10:27 -to 02:18:51 -c:v copy -c:a copy output.mp4 -> Extract part of a video with a one-line command (should be instantaneous)
+#
+# ffmpeg -i video -vf "select='between(t,4,6.5)+between(t,17,26)+between(t,74,91)',setpts=N/FRAME_RATE/TB" -af "aselect='between(t,4,6.5)+between(t,17,26)+between(t,74,91)',asetpts=N/SR/TB" out.mp4
+## /\ select and its counterpart filter is applied to the video and audio respectively. Segments selected are times 4 to 6.5 seconds, 17 to 26 seconds and finally 74 to 91 seconds. The timestamps are made continuous with the setpts and its counterpart filter..
 
 
 # Using these for raspberry pi fresh installs
@@ -56,6 +65,7 @@ declare -a developmentPackages=(
 'doxygen-gui' # documentation and UML
 'nodejs' # required for node-red
 'xclip' # required for formatting ssh keys into bitbucket
+'grip' # preview for markdown files (grip -b README.md)
 )
 
 declare -a pythonPackages=(
@@ -118,6 +128,7 @@ declare -a multimediaPackages=(
 'imagemagick' # convert .gif to .png frames and .jpg images into .pdf bundle
 #youtube-dl must be installed through pip to get the latest version
 #something here will stop the process and ask something, don't know what it is yet
+#'melt' # video editor, it's supposed to be good
 )
 
 declare -a miscellaneousPackages=(
@@ -125,6 +136,7 @@ declare -a miscellaneousPackages=(
 'gparted'
 'deluge'
 'octave'
+'octave-control'
 #'arduino' # Get arduino from the official website, the apt-get version is "SOMEWHAT" deprecated
 'okteta'
 'fritzing'
@@ -135,6 +147,7 @@ declare -a miscellaneousPackages=(
 #'mosquitto' # mqtt broker
 #'mosquitto-clients' # mqtt client (pub/sub)
 'djview4' # convert .djvu to .pdf
+'screen'
 )
 
 declare -a securityPackages=(
@@ -153,6 +166,7 @@ declare -a securityPackages=(
 declare -a pipPackages=(
 'pip3' # always upgrade pip itself
 'youtube-dl'
+'control' # get the rlocus plot
 'pandas'
 'numpy'
 'scipy'
@@ -161,16 +175,21 @@ declare -a pipPackages=(
 'matplotlib'
 'mglearn'
 'xlrd' # enable pandas to read excel
-'keras' # sequential model for neural networks, frontend for tensorflow (amongst others)
 ## you have to use the flag --ignore-installed when installing tensorflow
+'testresources' ## dependency for a dependency for tensorflow
+'setuptool' ## dependency for a dependency for tensorflow
+'joblib'
 'tensorflow' # dependency for keras
 'tensorflow-datasets'
 'tflearn' # yet another wrapper for tensorflow
+'keras' # sequential model for neural networks, frontend for tensorflow (amongst others)
 'sympy' # symbolic mathematics, useful for plotting
 'joblib'
 'graphviz' # useful for visualization of decision trees in scikit
 #'paho-mqtt' # python mqtt client
 # youtube-dl -v -x --audio-format mp3 --playlist-start <NUMBER> --playlist-end <NUMBER> <CHANNEL_URL>
+'seaborn' # statistical data visualization, required for manual rlocus
+'influxdb' ## little wrapper to query influxdb
 )
 
 
