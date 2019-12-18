@@ -4,10 +4,12 @@
 # these will be commented at the end of the script
 
 ###############################################################
-###################### Beginners Section ######################
+###################### Useful Commands ########################
 ###############################################################
 #
-# ps -p $$ -> outputs the name of your shell
+# crontab -e -> eDiT cRoNtAb
+#
+# ps -p $$ -> output the name of your shell
 #
 # apt-cache show <PACKAGE> -> show information about a package
 #
@@ -31,6 +33,37 @@
 #
 # ffmpeg -i video -vf "select='between(t,4,6.5)+between(t,17,26)+between(t,74,91)',setpts=N/FRAME_RATE/TB" -af "aselect='between(t,4,6.5)+between(t,17,26)+between(t,74,91)',asetpts=N/SR/TB" out.mp4
 ## /\ select and its counterpart filter is applied to the video and audio respectively. Segments selected are times 4 to 6.5 seconds, 17 to 26 seconds and finally 74 to 91 seconds. The timestamps are made continuous with the setpts and its counterpart filter..
+
+
+## Git basics (https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control -> this is the bible)
+# git add -A -> stage files to commit
+# git commit -m "Message" -> commit files (local)
+# git push origin <BRANCH> -> push files to repository
+# git log --oneline
+#
+## Undoing with git:
+#
+# git checkout -- . -> undo unstaged changes in the local directory
+# git clean -df -> SHOULD DELETE UNTRACKED FILES LOCALLY, BE CAREFUL
+# git reset -> undo staged, but uncommited changes
+#
+## Branching with git:
+#
+# git branch -a -> list all branches (local and remote)
+# git branch <BRANCH> -> creates a new branch
+# git checkout <BRANCH> -> switch to a branch
+# git checkout -b <BRANCH> -> equivalent to: git branch <BRANCH>; git checkout <BRANCH>
+#
+## Merging with git:
+#
+# git checkout master -> let us assume that we're moving back to do a hotfix
+# git checkout -b hotfix -> create, checkout (and apply the hotfix)
+# git commit -a -m "Applied the silly hotfix"
+# git checkout master -> move back to master
+# git merge hotfix -> MEEERRGE
+# git branch -d hotfix -> delete the useless branch (after the merge head is pointing to where it should again)
+
+
 
 
 # Using these for raspberry pi fresh installs
