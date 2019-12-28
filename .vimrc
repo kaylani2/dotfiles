@@ -74,6 +74,12 @@
 	" @{register}
 "
 " #################################################
+" # Regex
+" Grouping:
+"" :%s/\(GROUP1\)something\(group2\)/\1something\2
+"" :%s/\ \(late game\)/\ \\textit{\1}/g -> replaces occureences of late game with \textit{late game}
+
+" #################################################
 "# Spellchecker
 "
 	" :setlocal spell! spelllang=en_us -> toggles spellcheck in english
@@ -208,6 +214,8 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 
+" Easier serach and replace
+noremap ;; :%s///g<Left><Left><Left>
 
 " Read from the .skeleton.html file (a little template)
 "nnoremap ,template :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
@@ -287,7 +295,6 @@ nnoremap <leader>= :%s/\(\S\)=\(\S\)/\1 = \2/g<CR>
 nnoremap <leader>_ :%s/\(\S\)=\(\s\)/\1 =\2/g<CR>
 " Turn x= y into x = y
 nnoremap <leader>- :%s/\(\s\)=\(\S\)/\1= \2/g<CR>
-
 " Turn X,Y into X, Y
 nnoremap <leader>, :%s/\(\S\)\(,\)\(\S\)/\1\2\ \3/g<CR>
 
