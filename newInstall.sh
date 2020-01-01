@@ -24,8 +24,21 @@
 # for i in *' '*; do   mv "$i" `echo $i | sed -e 's/ /_/g'`; done ## TURN SPACES INTO UNDERSCORES
 #
 # convert -coalesce file_name.gif file_name.png ## CONVERTS A GIF INTO A BUNCH OF PNGs
-#
+############################ FFMPEG ###################################
 # Synopsis: ffmpeg -i [input_file] -ss [start_seconds] -t [duration_seconds] [output_file]
+#
+# ffmpeg -i video.mp4 -hide_banner ## GET VIDEO INFORMATION
+#
+# ffmpeg -formats # LIST AVAILABLE FORMATS
+#
+# ffmpeg -i input.webm -qscale 0 output.mp4 # CONVERT PRESERVING QUALITY
+#
+# ffmpeg -i input.mp4 -filter:v scale=1280:720 -c:a copy output.mp4 # RESIZE VIDEO
+#
+# ffmpeg -i input.mp4 -vf scale=1280:-1 -c:v libx264 -preset veryslow -crf 24 output.mp4 # COMPRESS VIDEO (CRF IS THE COMPRESSION RATE???, REDUCE THE NUMBER TO IMPROVE QUALITY)
+#
+# ffmpeg -i input.mp4 -vn output.mp3 # EXTRACT AUDIO
+#
 # \/ use FFmpeg cut mp4 video with re-encoding
 # ffmpeg -i source.mp4 -ss 00:00:05 -t 00:00:10 -async 1 -strict -2 cut_video.mp4 -> Extract part of a video with a one-line command
 #
