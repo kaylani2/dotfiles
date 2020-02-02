@@ -234,7 +234,7 @@ declare -a pipPackages=(
 'graphviz' # useful for visualization of decision trees in scikit
 #'paho-mqtt' # python mqtt client
 # youtube-dl -v -x --audio-format mp3 --playlist-start <NUMBER> --playlist-end <NUMBER> <CHANNEL_URL>
-'seaborn' # statistical data visualization, required for manual rlocus
+'seaborn' # statistical data visualization, required for manual rlocus on octave
 'influxdb' ## little wrapper to query influxdb
 )
 
