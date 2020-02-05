@@ -356,5 +356,9 @@ if [ $1 == "notPi" ]; then
   ## \/ Add Syntax file and other settings for TypeScript on Vim.
   #git clone https://github.com/leafgarland/typescript-vim.git ~/.vim/pack/typescript/start/typescript-vim
 
+  ## mailutils is needed for the mail command
+  ## \/ this line will generate a prompt to confirm a few options, maybe install it manually...
+  # sudo apt install mailutils
+
   exit 0
 fi # fi notPi
