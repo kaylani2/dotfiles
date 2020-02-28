@@ -290,6 +290,9 @@ if [ $1 == "notPi" ]; then
   echo Pip Packages:
   echo ${pipPackages[@]}
 
+  touch ~/.ssh/config
+  echo "Host *\n\tServerAliveInterval" | sudo tee -a ~/.ssh/config
+
   apt-get update
   # \/ installing etcher (image burner)
   echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
