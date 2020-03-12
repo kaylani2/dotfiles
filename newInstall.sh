@@ -194,6 +194,8 @@ declare -a miscellaneousPackages=(
 #'mosquitto-clients' # mqtt client (pub/sub)
 'djview4' # convert .djvu to .pdf
 'screen'
+'locate'
+'tree'
 )
 
 declare -a securityPackages=(
