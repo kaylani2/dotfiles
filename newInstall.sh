@@ -239,6 +239,7 @@ declare -a pipPackages=(
 'seaborn' # statistical data visualization, required for manual rlocus on octave
 'influxdb' ## little wrapper to query influxdb
 'nbformat'
+'theano'
 )
 
 
