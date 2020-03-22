@@ -240,6 +240,7 @@ declare -a pipPackages=(
 'influxdb' ## little wrapper to query influxdb
 'nbformat'
 'theano'
+'pydot'
 )
 
 
