@@ -3,7 +3,7 @@ import os
 
 cmd1 = 'ffmpeg -i '
 cmd2 = ' -vf scale=1280:-1 -c:v libx264 -preset veryfast -crf 23 '
-cmd3 = '.mp4'
+cmd3 = 'DOWNSIZED.mp4'
 
 
 videoFormat = 'webm'
