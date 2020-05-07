@@ -112,6 +112,7 @@ declare -a developmentPackages=(
 'nodejs' # required for node-red
 'xclip' # required for formatting ssh keys into bitbucket
 'grip' # preview for markdown files (grip -b README.md)
+'wireshark'
 )
 
 declare -a pythonPackages=(
