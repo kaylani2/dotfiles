@@ -265,6 +265,7 @@ if [ $1 == "pi" ]; then
   rm -rf dotfiles
   echo "alias l='ls -lh'" | sudo tee -a ~/.bashrc
   echo "alias tt='tmux'" | sudo tee -a ~/.bashrc
+  echo "stty ixany" | sudo tee -a ~/.bashrc
   exit 0
 fi
 
