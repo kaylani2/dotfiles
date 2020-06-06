@@ -13,3 +13,5 @@ echo -e "Host *\n\tServerAliveInterval 60" | tee ~/.ssh/config
 echo "alias l='ls -lh'" | tee -a ~/.bashrc
 echo "alias tt='tmux'" | tee -a ~/.bashrc
 echo "alias xx='xdg-open'" | tee -a ~/.bashrc
+echo "alias teelog='tee logfile.$(date +'%Y-%m-%d-%H:%M:%S').log'"
+echo "stty ixany" | tee -a ~/.bashrc
