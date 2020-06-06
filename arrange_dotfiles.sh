@@ -1,10 +1,15 @@
 #!/bin/bash
 
+## Touches
 touch ~/.ssh/config
-echo "Host *\n\tServerAliveInterval" | sudo tee ~/.ssh/config
+touch ~/.bashrc
+
+## Moves
 cp .vimrc ~/.vimrc
 cp .tmux.conf ~/.tmux.conf
-touch ~/.bashrc
-echo "alias l='ls -lh'" | sudo tee -a ~/.bashrc
-echo "alias tt='tmux'" | sudo tee -a ~/.bashrc
-echo "alias xx='xdg-open'" | sudo tee -a ~/.bashrc
+
+## Echoes
+echo -e "Host *\n\tServerAliveInterval 60" | tee ~/.ssh/config
+echo "alias l='ls -lh'" | tee -a ~/.bashrc
+echo "alias tt='tmux'" | tee -a ~/.bashrc
+echo "alias xx='xdg-open'" | tee -a ~/.bashrc
