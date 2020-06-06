@@ -1,4 +1,5 @@
 #!/bin/bash
+# @TODO: clean this mess!
 
 # some programs need to be installed manually and only under certain conditions
 # these will be commented at the end of the script
@@ -266,7 +267,8 @@ if [ $1 == "notPi" ]; then
   echo ${pipPackages[@]}
 
   touch ~/.ssh/config
-  echo "Host *\n\tServerAliveInterval" | sudo tee -a ~/.ssh/config
+  echo -e "Host *\n\tServerAliveInterval 60" | sudo tee -a ~/.ssh/config
+  echo "stty ixany" | sudo tee -a ~/.bashrc
 
   apt-get update
   # \/ installing etcher (image burner)
