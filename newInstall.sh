@@ -85,15 +85,15 @@ declare -a developmentPackages=(
 )
 
 declare -a pythonPackages=(
-'python3'
+#'python3'
 'python3-pip'
-'python3-numpy'
-'python3-tk'
-'python-matplotlib'
-'python-setuptools' # pip
-'cmake'
-'setuptools'
-'graphviz'
+#'python3-numpy'
+#'python3-tk'
+#'python-matplotlib'
+#'python-setuptools' # pip
+#'cmake'
+#'setuptools'
+#'graphviz'
 )
 
 declare -a javaPackages=(
@@ -184,6 +184,7 @@ declare -a securityPackages=(
 declare -a pipPackages=(
 'pip3' # always upgrade pip itself
 'youtube-dl'
+'pipenv'
 'control' # get the rlocus plot
 'pandas'
 'numpy'
@@ -266,9 +267,21 @@ if [ $1 == "notPi" ]; then
   echo Pip Packages:
   echo ${pipPackages[@]}
 
+  cp .vimrc ~/.vimrc
+  cp .tmux.conf ~/.tmux.conf
   touch ~/.ssh/config
-  echo -e "Host *\n\tServerAliveInterval 60" | sudo tee -a ~/.ssh/config
-  echo "stty ixany" | sudo tee -a ~/.bashrc
+  echo -e "Host *\n\tServerAliveInterval 60" | tee ~/.ssh/config
+  echo "alias l='ls -lh'" | tee -a ~/.bashrc
+  echo "alias tt='tmux'" | tee -a ~/.bashrc
+  echo "alias xx='xdg-open'" | tee -a ~/.bashrc
+  echo "alias teelog='tee logfile.$(date +'%Y-%m-%d-%H_%M_%S').log'"
+  echo "stty ixany" | tee -a ~/.bashrc
+  echo 'if [ -n "$BASH_VERSION" ]; then' | tee -a ~/.profile
+  echo '# include .bashrc if it exists' | tee -a ~/.profile
+  echo 'if [ -f "$HOME/.bashrc" ]; then' | tee -a ~/.profile
+  echo '. "$HOME/.bashrc"' | tee -a ~/.profile
+  echo 'fi' | tee -a ~/.profile
+  echo 'fi' | tee -a ~/.profile
 
   apt-get update
   # \/ installing etcher (image burner)
@@ -281,21 +294,9 @@ if [ $1 == "notPi" ]; then
   apt-get install -y ${miscellaneousPackages[@]}
   apt-get install -y ${securityPackages[@]}
   apt-get install -y ${multimediaPackages[@]}
-  #apt-get install -y ${pythonPackages[@]} ## removed until fixed
+  apt-get install -y ${pythonPackages[@]}
   pip3 install --upgrade ${pipPackages[@]}
 
-
-  # \/ this line will ask for confirmation
-  #add-apt-repository ppa:dawidd0811/neofetch
-  #apt-get update
-  #apt-get install neofetch
-
-  #git clone https://github.com/kaylani2/dotfiles
-  #cd dotfiles
-  #cp .vimrc ~/.vimrc
-  #cp .tmux.conf ~/.tmux.conf
-  #cd ..
-  #rm -rf dotfiles
 
   # \/Add the build repository and install the Metasploit Framework package:
   #curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
@@ -315,7 +316,6 @@ if [ $1 == "notPi" ]; then
   # \/ nodejs binaries are distributed by NodeSource
   #curl -sL https://deb.nodesource.com/setup_11.x | bash -
   #apt-get install -y nodejs
-
 
   ## \/ Install docker
   #echo "Installing Docker..."
