@@ -284,9 +284,6 @@ if [ $1 == "notPi" ]; then
   echo 'fi' | tee -a ~/.profile
 
   apt-get update
-  # \/ installing etcher (image burner)
-  echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
-  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
   apt-get install -y ${developmentPackages[@]}
   apt-get install -y ${shellToolsPackages[@]}
   apt-get install -y ${javaPackages[@]}
