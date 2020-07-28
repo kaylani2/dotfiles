@@ -135,7 +135,7 @@ declare -a multimediaPackages=(
 'fmit' #bass tuner
 'rakarrack' #virtual effects rack
 'guitarix' #rock guitar amplifier for Jack
-'qjackctl' #user interface for controlling JACK (Jack Audio Connection Kit)
+#'qjackctl' #user interface for controlling JACK (Jack Audio Connection Kit) #prompts
 'pinta'
 'img2pdf'
 'clementine' #mp3 player
