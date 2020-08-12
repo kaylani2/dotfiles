@@ -138,6 +138,7 @@ declare -a multimediaPackages=(
 #'qjackctl' #user interface for controlling JACK (Jack Audio Connection Kit) #prompts
 'pinta'
 'img2pdf'
+'texlive-extra-utils' #pdfcrop pdfcrop --margins '-30 -30 -250 -150' --clip input.pdf output.pdf (-left -top -right -bottom format)
 'clementine' #mp3 player
 'handbrake' #media converter
 'openshot' #video editing
