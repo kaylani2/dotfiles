@@ -166,6 +166,8 @@ declare -a miscellaneousPackages=(
 'screen'
 'locate'
 'tree'
+'xournal' # sign pdfs
+'pdf-pc' # pdf presentation software
 )
 
 declare -a securityPackages=(
