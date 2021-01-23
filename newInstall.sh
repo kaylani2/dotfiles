@@ -76,7 +76,7 @@ declare -a developmentPackages=(
 'perl'
 'perl-doc'
 'perlqt-dev' #extern.h ?
-'virtualbox-qt'
+'virtualbox'
 'doxygen' # documentation and UML
 'doxygen-gui' # documentation and UML
 'nodejs' # required for node-red
