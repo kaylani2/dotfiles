@@ -143,7 +143,7 @@ declare -a multimediaPackages=(
 'handbrake' #media converter
 'openshot' #video editing
 'imagemagick' # convert .gif to .png frames and .jpg images into .pdf bundle
-#youtube-dl must be installed through pip to get the latest version
+#youtube-dl must be installed through pip to get the latest version ## https://packages.debian.org/sid/all/youtube-dl/download
 #something here will stop the process and ask something, don't know what it is yet
 #'melt' # video editor, it's supposed to be good
 )
