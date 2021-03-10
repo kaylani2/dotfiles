@@ -160,7 +160,7 @@ declare -a miscellaneousPackages=(
 'fritzing-data'
 'fritzing-parts'
 'qtiplot'
-'balena-etcher-electron' # image burner
+#'balena-etcher-electron' # image burner ## No longer on the repos
 #'mosquitto' # mqtt broker
 #'mosquitto-clients' # mqtt client (pub/sub)
 'djview4' # convert .djvu to .pdf
