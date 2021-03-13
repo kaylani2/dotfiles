@@ -66,7 +66,7 @@ declare -a piPackages=(
 
 declare -a developmentPackages=(
 'vim'
-'sublime-text'
+'sublime-text' # TODO: fix?
 'ctags'
 'git'
 'build-essential'
@@ -75,7 +75,7 @@ declare -a developmentPackages=(
 'lua5.3'
 'perl'
 'perl-doc'
-'perlqt-dev' #extern.h ?
+'perlqt-dev' #extern.h ? # TODO: fix?
 'virtualbox'
 'doxygen' # documentation and UML
 'doxygen-gui' # documentation and UML
@@ -159,7 +159,7 @@ declare -a miscellaneousPackages=(
 'fritzing'
 'fritzing-data'
 'fritzing-parts'
-'qtiplot'
+'qtiplot' # TODO: fix?
 #'balena-etcher-electron' # image burner ## No longer on the repos
 #'mosquitto' # mqtt broker
 #'mosquitto-clients' # mqtt client (pub/sub)
@@ -175,7 +175,7 @@ declare -a securityPackages=(
 'password-gorilla'
 'steghide'
 #'proxychains'
-'obfsproxy'
+'obfsproxy' # TODO: fix?
 #'tor' #bulky
 'nmap'
 'nikto'
@@ -269,6 +269,7 @@ if [ $1 == "notPi" ]; then
   echo
   echo Pip Packages:
   echo ${pipPackages[@]}
+  echo
 
   cp .vimrc ~/.vimrc
   cp .tmux.conf ~/.tmux.conf
@@ -342,3 +343,21 @@ if [ $1 == "notPi" ]; then
 
   exit 0
 fi # fi notPi
+
+
+### TODO: fix
+
+#cp: cannot stat '.vimrc': No such file or directory                                                                                    
+#cp: cannot stat '.tmux.conf': No such file or directory                                                                                
+#touch: cannot touch '/root/.ssh/config': No such file or directory                                                                     
+#tee: /root/.ssh/config: No such file or directory                                    
+
+
+#### K: jackd prompts an interaction, must remove
+
+#ERROR: Could not find a version that satisfies the requirement pip3 (from versions: none)
+#ERROR: No matching distribution found for pip3
+
+### K: vim + tmux color schemes look bad on kubuntu
+
+### K: Maybe set git config options too?
