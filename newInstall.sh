@@ -154,13 +154,12 @@ declare -a miscellaneousPackages=(
 'qbittorrent'
 'octave'
 'octave-control'
+'libqt5websockets5' # Needed for Cockatrice
 #'arduino' # Get arduino from the official website, the apt-get version is "SOMEWHAT" deprecated
 'okteta'
 'fritzing'
 'fritzing-data'
 'fritzing-parts'
-'qtiplot' # TODO: fix?
-#'balena-etcher-electron' # image burner ## No longer on the repos
 #'mosquitto' # mqtt broker
 #'mosquitto-clients' # mqtt client (pub/sub)
 'djview4' # convert .djvu to .pdf
