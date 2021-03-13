@@ -151,7 +151,7 @@ declare -a multimediaPackages=(
 declare -a miscellaneousPackages=(
 'firefox'
 'gparted'
-'deluge'
+'qbittorrent'
 'octave'
 'octave-control'
 #'arduino' # Get arduino from the official website, the apt-get version is "SOMEWHAT" deprecated
@@ -361,3 +361,9 @@ fi # fi notPi
 ### K: vim + tmux color schemes look bad on kubuntu
 
 ### K: Maybe set git config options too?
+
+### K: Also run update and upgrade afterwards
+### K: Also run --fix-broken install
+
+### K: Discord?
+### K: Cockatrice?
