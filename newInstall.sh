@@ -165,6 +165,7 @@ declare -a miscellaneousPackages=(
 'screen'
 'locate'
 'tree'
+'gparted' # format flash drives on kubuntu
 'xournal' # sign pdfs
 'pdf-pc' # pdf presentation software
 )
