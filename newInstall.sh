@@ -131,7 +131,6 @@ declare -a multimediaPackages=(
 'vlc'
 #'libav-tools'
 'ffmpeg'
-'audacity'
 'fmit' #bass tuner
 'rakarrack' #virtual effects rack
 'guitarix' #rock guitar amplifier for Jack
@@ -366,3 +365,4 @@ fi # fi notPi
 
 ### K: Discord?
 ### K: Cockatrice?
+### K: Drawio? sudo snap install drawio
