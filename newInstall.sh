@@ -367,3 +367,4 @@ fi # fi notPi
 ### K: Discord?
 ### K: Cockatrice?
 ### K: Drawio? sudo snap install drawio
+### K: Mendeley?
