@@ -345,12 +345,10 @@ fi # fi notPi
 
 
 ### TODO: fix
-
 #cp: cannot stat '.vimrc': No such file or directory                                                                                    
 #cp: cannot stat '.tmux.conf': No such file or directory                                                                                
 #touch: cannot touch '/root/.ssh/config': No such file or directory                                                                     
 #tee: /root/.ssh/config: No such file or directory                                    
-
 
 #### K: jackd prompts an interaction, must remove
 
@@ -368,3 +366,9 @@ fi # fi notPi
 ### K: Cockatrice?
 ### K: Drawio? sudo snap install drawio
 ### K: Mendeley?
+### K: Skype?
+
+### K: Setup tmux to auto run on a new terminal: (sed into .bashrc)
+#if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    #tmux attach -t default || tmux new -s default
+#fi
