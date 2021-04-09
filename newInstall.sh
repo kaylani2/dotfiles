@@ -1,5 +1,6 @@
 #!/bin/bash
 # @TODO: clean this mess!
+# @TODO: move to snipets: rfid, liga anonimizado, rm lscraper, restart lwatch
 
 # some programs need to be installed manually and only under certain conditions
 # these will be commented at the end of the script
@@ -216,6 +217,10 @@ declare -a pipPackages=(
 'pydot'
 )
 
+declare -a nodePackages=(
+'nodejs'
+)
+
 
 if [ $# -eq 0 ]; then
     echo "Usage: bash $0 [pi | notPi]"
@@ -269,6 +274,9 @@ if [ $1 == "notPi" ]; then
   echo Pip Packages:
   echo ${pipPackages[@]}
   echo
+  echo Node Packages:
+  echo ${nodePackages[@]}
+  echo
 
   cp .vimrc ~/.vimrc
   cp .tmux.conf ~/.tmux.conf
@@ -295,6 +303,7 @@ if [ $1 == "notPi" ]; then
   apt-get install -y ${securityPackages[@]}
   apt-get install -y ${multimediaPackages[@]}
   apt-get install -y ${pythonPackages[@]}
+  apt-get install -y ${nodePackages[@]}
   pip3 install --upgrade ${pipPackages[@]}
 
 
@@ -345,10 +354,10 @@ fi # fi notPi
 
 
 ### TODO: fix
-#cp: cannot stat '.vimrc': No such file or directory                                                                                    
-#cp: cannot stat '.tmux.conf': No such file or directory                                                                                
-#touch: cannot touch '/root/.ssh/config': No such file or directory                                                                     
-#tee: /root/.ssh/config: No such file or directory                                    
+#cp: cannot stat '.vimrc': No such file or directory
+#cp: cannot stat '.tmux.conf': No such file or directory
+#touch: cannot touch '/root/.ssh/config': No such file or directory
+#tee: /root/.ssh/config: No such file or directory
 
 #### K: jackd prompts an interaction, must remove
 
@@ -367,6 +376,9 @@ fi # fi notPi
 ### K: Drawio? sudo snap install drawio
 ### K: Mendeley?
 ### K: Skype?
+### K: Whatsapp? sudo snap install whatsdesk
+### K: pdfpc? 
+### K: libreoffice?
 
 ### K: Setup tmux to auto run on a new terminal: (sed into .bashrc)
 #if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
