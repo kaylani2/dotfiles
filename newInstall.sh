@@ -8,44 +8,39 @@
 ###############################################################
 ###################### Useful Commands ########################
 ###############################################################
-#
-# crontab -e -> eDiT cRoNtAb
-#
+
+############################ SCREEN ###################################
+# screen -S session_name
+# ctrl+a d # dettach from screen
+# screen -r # attach to screen
+# screen -ls
+
+############################ MONITORING ###################################
+# watch -n 1 sensors ## CPU TEMP
+# gpustat -F --watch ## GPU LOAD FAN MEM
+
+############################ MISC ###################################
+# crontab -e ## eDiT cRoNtAb
 # ps -p $$ -> output the name of your shell
-#
 # apt-cache show <PACKAGE> -> show information about a package
-#
 # dpkg -i <PACKAGE>.deb -> install a .deb package
-#
 # echo $? -> output last code returned to the shell
-#
 # sudo grep -r '^psk=' /etc/NetworkManager/system-connections/ -> show saved SSID and passwords
-#
 # for d in ./*/ ; do (cd "$d" && touch it_werks); done -> enters every subdirectory (one level) and executes a command
-#
 # for i in *' '*; do   mv "$i" `echo $i | sed -e 's/ /_/g'`; done ## TURN SPACES INTO UNDERSCORES
-#
 # convert -coalesce file_name.gif file_name.png ## CONVERTS A GIF INTO A BUNCH OF PNGs
+
 ############################ FFMPEG ###################################
 # Synopsis: ffmpeg -i [input_file] -ss [start_seconds] -t [duration_seconds] [output_file]
-#
 # ffmpeg -i video.mp4 -hide_banner ## GET VIDEO INFORMATION
-#
 # ffmpeg -formats # LIST AVAILABLE FORMATS
-#
 # ffmpeg -i input.webm -qscale 0 output.mp4 # CONVERT PRESERVING QUALITY
-#
 # ffmpeg -i input.mp4 -filter:v scale=1280:720 -c:a copy output.mp4 # RESIZE VIDEO
-#
 # ffmpeg -i input.mp4 -vf scale=1280:-1 -c:v libx264 -preset veryslow -crf 24 output.mp4 # COMPRESS VIDEO (CRF IS THE COMPRESSION RATE???, REDUCE THE NUMBER TO IMPROVE QUALITY)
-#
 # ffmpeg -i input.mp4 -vn output.mp3 # EXTRACT AUDIO
-#
 # \/ use FFmpeg cut mp4 video with re-encoding
 # ffmpeg -i source.mp4 -ss 00:00:05 -t 00:00:10 -async 1 -strict -2 cut_video.mp4 -> Extract part of a video with a one-line command
-#
 # ffmpeg -i input.mp4 -ss 01:10:27 -to 02:18:51 -c:v copy -c:a copy output.mp4 -> Extract part of a video with a one-line command (should be instantaneous)
-#
 # ffmpeg -i video -vf "select='between(t,4,6.5)+between(t,17,26)+between(t,74,91)',setpts=N/FRAME_RATE/TB" -af "aselect='between(t,4,6.5)+between(t,17,26)+between(t,74,91)',asetpts=N/SR/TB" out.mp4
 ## /\ select and its counterpart filter is applied to the video and audio respectively. Segments selected are times 4 to 6.5 seconds, 17 to 26 seconds and finally 74 to 91 seconds. The timestamps are made continuous with the setpts and its counterpart filter..
 
@@ -129,6 +124,7 @@ declare -a latexPackages=(
 )
 
 declare -a multimediaPackages=(
+'guvcview' # camera viewer
 'vlc'
 #'libav-tools'
 'ffmpeg'
@@ -377,8 +373,11 @@ fi # fi notPi
 ### K: Mendeley?
 ### K: Skype?
 ### K: Whatsapp? sudo snap install whatsdesk
-### K: pdfpc? 
+### K: pdfpc?
 ### K: libreoffice?
+
+### K: Add alias: alias teelog='tee "logfile.$(date +'%Y-%m-%d-%H_%M_%S').log"'
+### K: Add alias: alias mailkay='echo "Finished" | mail -s "Finished" "someone@gmail.com,someoneelse@gmail.com"'
 
 ### K: Setup tmux to auto run on a new terminal: (sed into .bashrc)
 #if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
