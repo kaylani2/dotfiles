@@ -145,6 +145,7 @@ declare -a multimediaPackages=(
 )
 
 declare -a miscellaneousPackages=(
+'net-tools' # ifconfig
 'firefox'
 'gparted'
 'qbittorrent'
