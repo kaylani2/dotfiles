@@ -73,11 +73,12 @@ declare -a developmentPackages=(
 'perl-doc'
 'perlqt-dev' #extern.h ? # TODO: fix?
 'virtualbox'
-'doxygen' # documentation and UML
-'doxygen-gui' # documentation and UML
-'nodejs' # required for node-red
-'xclip' # required for formatting ssh keys into bitbucket
+#'doxygen' # documentation and UML
+#'doxygen-gui' # documentation and UML
+#'xclip' # required for formatting ssh keys into bitbucket
 'grip' # preview for markdown files (grip -b README.md)
+'nodejs' # required for node-red
+'npm' # node package manager
 )
 
 declare -a pythonPackages=(
