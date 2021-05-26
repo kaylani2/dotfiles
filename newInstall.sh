@@ -167,6 +167,7 @@ declare -a miscellaneousPackages=(
 'gparted' # format flash drives on kubuntu
 'xournal' # sign pdfs
 'pdf-pc' # pdf presentation software
+'synaptic' # graphic package manager
 )
 
 declare -a securityPackages=(
