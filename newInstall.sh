@@ -43,6 +43,8 @@
 # ffmpeg -i input.mp4 -ss 01:10:27 -to 02:18:51 -c:v copy -c:a copy output.mp4 -> Extract part of a video with a one-line command (should be instantaneous)
 # ffmpeg -i video -vf "select='between(t,4,6.5)+between(t,17,26)+between(t,74,91)',setpts=N/FRAME_RATE/TB" -af "aselect='between(t,4,6.5)+between(t,17,26)+between(t,74,91)',asetpts=N/SR/TB" out.mp4
 ## /\ select and its counterpart filter is applied to the video and audio respectively. Segments selected are times 4 to 6.5 seconds, 17 to 26 seconds and finally 74 to 91 seconds. The timestamps are made continuous with the setpts and its counterpart filter..
+#ffmpeg -i video.mp4 -af "volume=enable='between(t,60*60*02+60*01+23,60*60*02+60*02+46)':volume=0, volume=enable='between(t,60*60*02+60*11+13,60*60*02+60*12+00)':volume=0" output.mp4
+## /\ mute sections of the video
 
 
 # Using these for raspberry pi fresh installs
