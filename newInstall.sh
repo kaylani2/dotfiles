@@ -288,6 +288,10 @@ if [ $1 == "notPi" ]; then
   echo "alias xx='xdg-open'" | tee -a ~/.bashrc
   echo "alias teelog='tee logfile.$(date +'%Y-%m-%d-%H_%M_%S').log'"
   echo "stty ixany" | tee -a ~/.bashrc
+  #export PATH="~/.pyenv/bin:$PATH"
+  #eval "$(pyenv init -)"
+  #eval "$(pyenv virtualenv-init -)"
+
   echo 'if [ -n "$BASH_VERSION" ]; then' | tee -a ~/.profile
   echo '# include .bashrc if it exists' | tee -a ~/.profile
   echo 'if [ -f "$HOME/.bashrc" ]; then' | tee -a ~/.profile
