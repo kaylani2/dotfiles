@@ -92,6 +92,7 @@
 " Syntax file and other settings for TypeScript.
 " git clone https://github.com/leafgarland/typescript-vim.git ~/.vim/pack/typescript/start/typescript-vim
 
+" :g/^/m0 -> Flip file
 " #################################################
 " #################################################
 " #################################################
@@ -243,30 +244,30 @@ noremap ;; :%s///g<Left><Left><Left>
 "nnoremap <leader>Ú :%s/Ú/\&Uacute;/g<CR>
 
 " Remove those damn diacritics
-nnoremap <leader>ç :%s/ç/c/g<CR>
-nnoremap <leader>ã :%s/ã/a/g<CR>
-nnoremap <leader>Ã :%s/Ã/A/g<CR>
-nnoremap <leader>â :%s/â/a/g<CR>
-nnoremap <leader>Â :%s/Â/A/g<CR>
-nnoremap <leader>á :%s/á/a/g<CR>
-nnoremap <leader>Á :%s/Á/A/g<CR>
-nnoremap <leader>à :%s/à/a/g<CR>
-nnoremap <leader>À :%s/À/A/g<CR>
-nnoremap <leader>é :%s/é/e/g<CR>
-nnoremap <leader>É :%s/É/E/g<CR>
-nnoremap <leader>è :%s/è/e/g<CR>
-nnoremap <leader>È :%s/È/E/g<CR>
-nnoremap <leader>í :%s/í/i/g<CR>
-nnoremap <leader>Í :%s/Í/I/g<CR>
-nnoremap <leader>ó :%s/ó/o/g<CR>
-nnoremap <leader>Ó :%s/Ó/O/g<CR>
-nnoremap <leader>ô :%s/ô/o/g<CR>
-nnoremap <leader>Ô :%s/Ô/O/g<CR>
-nnoremap <leader>ú :%s/ú/u/g<CR>
-nnoremap <leader>Ú :%s/Ú/U/g<CR>
+"nnoremap <leader>ç :%s/ç/c/g<CR>
+"nnoremap <leader>ã :%s/ã/a/g<CR>
+"nnoremap <leader>Ã :%s/Ã/A/g<CR>
+"nnoremap <leader>â :%s/â/a/g<CR>
+"nnoremap <leader>Â :%s/Â/A/g<CR>
+"nnoremap <leader>á :%s/á/a/g<CR>
+"nnoremap <leader>Á :%s/Á/A/g<CR>
+"nnoremap <leader>à :%s/à/a/g<CR>
+"nnoremap <leader>À :%s/À/A/g<CR>
+"nnoremap <leader>é :%s/é/e/g<CR>
+"nnoremap <leader>É :%s/É/E/g<CR>
+"nnoremap <leader>è :%s/è/e/g<CR>
+"nnoremap <leader>È :%s/È/E/g<CR>
+"nnoremap <leader>í :%s/í/i/g<CR>
+"nnoremap <leader>Í :%s/Í/I/g<CR>
+"nnoremap <leader>ó :%s/ó/o/g<CR>
+"nnoremap <leader>Ó :%s/Ó/O/g<CR>
+"nnoremap <leader>ô :%s/ô/o/g<CR>
+"nnoremap <leader>Ô :%s/Ô/O/g<CR>
+"nnoremap <leader>ú :%s/ú/u/g<CR>
+"nnoremap <leader>Ú :%s/Ú/U/g<CR>
 
 " Let us keep a nice indentation
-nnoremap <leader>( :%s/\(\S\)(/\1\ (/g<CR>
+"nnoremap <leader>( :%s/\(\S\)(/\1\ (/g<CR>
 "nnoremap <leader>[ :%s/\(\S\)\[/\1\ (/g<CR>
 
 " Flag to disable Typescript indenting (plugin)
@@ -280,23 +281,23 @@ nnoremap <leader>; :%s/\d\+/&x/g<CR>
 nnoremap <leader>ź :%s/],/]\r/g<CR>:%s/-/\//g<CR>:%s/T/_/g<CR>:%s/.\d\+Z",/ /g<CR>:%s/"\S\+",\S\+,"\S\+",//<CR>:%s/]//<CR>:%s/]\S\+//<CR>:%s/\["//<CR>
 
 " Turn f() into f ()
-nnoremap <leader>( :%s/\(\S\)\((\)/\1\ \2/g<CR>
+"nnoremap <leader>( :%s/\(\S\)\((\)/\1\ \2/g<CR>
 " Turn f () into f()
-nnoremap <leader>) :%s/\(\s\)\((\)/(/g<CR>
+"nnoremap <leader>) :%s/\(\s\)\((\)/(/g<CR>
 
 " Turn f[] into f []
-nnoremap <leader>[ :%s/\(\S\)\(\[\)/\1\ \2/g<CR>
+"nnoremap <leader>[ :%s/\(\S\)\(\[\)/\1\ \2/g<CR>
 " Turn f [] into f[]
-nnoremap <leader>] :%s/\(\s\)\(\[\)/[/g<CR>
+"nnoremap <leader>] :%s/\(\s\)\(\[\)/[/g<CR>
 
 " Turn x=y into x = y
-nnoremap <leader>= :%s/\(\S\)=\(\S\)/\1 = \2/g<CR>
+"nnoremap <leader>= :%s/\(\S\)=\(\S\)/\1 = \2/g<CR>
 " Turn x =y into x = y
-nnoremap <leader>_ :%s/\(\S\)=\(\s\)/\1 =\2/g<CR>
+"nnoremap <leader>_ :%s/\(\S\)=\(\s\)/\1 =\2/g<CR>
 " Turn x= y into x = y
-nnoremap <leader>- :%s/\(\s\)=\(\S\)/\1= \2/g<CR>
+"nnoremap <leader>- :%s/\(\s\)=\(\S\)/\1= \2/g<CR>
 " Turn X,Y into X, Y
-nnoremap <leader>, :%s/\(\S\)\(,\)\(\S\)/\1\2\ \3/g<CR>
+"nnoremap <leader>, :%s/\(\S\)\(,\)\(\S\)/\1\2\ \3/g<CR>
 
 
 " Highlights the word under the cursor by pressing ^m
